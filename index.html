@@ -115,11 +115,11 @@ section{padding:110px 8% 60px;position:relative;z-index:1}
 }
 .glitch::before{
   left:2px;text-shadow:-2px 0 #ff00c8;
-  animation:glitch1 3s infinite linear alternate-reverse;
+  animation:glitch1 7s infinite linear alternate-reverse;
 }
 .glitch::after{
   left:-2px;text-shadow:2px 0 var(--neon);
-  animation:glitch2 2.5s infinite linear alternate-reverse;
+  animation:glitch2 6s infinite linear alternate-reverse;
 }
 @keyframes glitch1{
   0%,90%{clip-path:inset(0 0 100% 0)}
@@ -223,6 +223,11 @@ section{padding:110px 8% 60px;position:relative;z-index:1}
 .bar-fill{height:100%;width:0;background:linear-gradient(90deg,var(--neon),#fff);
   border-radius:5px;box-shadow:0 0 10px var(--neon);transition:width 1.8s cubic-bezier(.2,.8,.2,1)}
 
+
+.level{font-family:'Fira Code',monospace;font-size:.7rem;letter-spacing:1px;text-transform:uppercase;color:var(--muted);margin:18px 0 9px}
+.level:first-of-type{margin-top:0}
+.tag.learning{border-style:dashed;background:transparent}
+
 /* TIMELINE */
 .timeline{position:relative;max-width:900px;margin:auto;padding-left:35px}
 .timeline::before{
@@ -253,10 +258,11 @@ section{padding:110px 8% 60px;position:relative;z-index:1}
 }
 .project:hover{box-shadow:0 0 35px rgba(var(--neon-rgb),.45);border-color:var(--neon)}
 .project-img{
-  height:180px;display:flex;align-items:center;justify-content:center;
+  aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;
   background:linear-gradient(135deg,rgba(var(--neon-rgb),.15),rgba(0,0,0,.4));
   font-size:3.5rem;position:relative;overflow:hidden;
 }
+.project-img img{width:100%;height:100%;object-fit:cover;display:block}
 .project-img::after{
   content:'';position:absolute;inset:0;
   background:repeating-linear-gradient(0deg,transparent 0 3px,rgba(var(--neon-rgb),.06) 3px 4px);
@@ -267,6 +273,7 @@ section{padding:110px 8% 60px;position:relative;z-index:1}
 .project-links{display:flex;gap:15px;margin-top:16px}
 .project-links a{color:var(--neon);text-decoration:none;font-family:'Fira Code',monospace;font-size:.82rem;transition:.3s}
 .project-links a:hover{text-shadow:0 0 10px var(--neon);letter-spacing:1px}
+.project-img.plus{font-family:'Orbitron',sans-serif;font-size:4rem;color:var(--neon);text-shadow:0 0 14px var(--neon)}
 .project.placeholder{border-style:dashed;opacity:.8}
 
 
@@ -289,7 +296,7 @@ section{padding:110px 8% 60px;position:relative;z-index:1}
 .interest:nth-child(2) .big{animation-delay:.5s}
 .interest:nth-child(3) .big{animation-delay:1s}
 @keyframes bob{50%{transform:translateY(-10px) rotate(6deg)}}
-.interest h3{font-family:'Orbitron',sans-serif;color:var(--neon);margin:16px 0 10px;font-size:1.15rem}
+.interest h3{font-family:'Orbitron',sans-serif;color:var(--neon);margin:0 0 10px;font-size:1.15rem}
 .interest p{color:var(--muted);font-size:.9rem;line-height:1.7;margin-bottom:14px}
 .interest .tags{justify-content:center}
 .hello .scr{color:var(--neon)}
@@ -384,7 +391,7 @@ footer span{color:var(--neon)}
     <li><a href="#education">Formations</a></li>
     <li><a href="#interests">Intérêts</a></li>
     <li><a href="#contact">Contact</a></li>
-    <li><button class="theme-btn" id="themeBtn">⚡ BLUE</button></li>
+    <li><button class="theme-btn" id="themeBtn">BLUE</button></li>
   </ul>
   <button class="burger" id="burger">☰</button>
 </nav>
@@ -444,29 +451,31 @@ footer span{color:var(--neon)}
   <h2 class="section-title reveal">Com<span>pétences</span></h2>
   <div class="skills-grid">
     <div class="skill-card reveal">
-      <h3>💻 Systèmes</h3>
+      <h3>Systèmes</h3>
+      <div class="level">Maîtrisé</div>
       <div class="tags"><span class="tag">Windows</span><span class="tag">Linux</span><span class="tag">VMware</span><span class="tag">Microsoft Office 365</span></div>
-      <div class="bar"><div class="bar-label"><span>Windows</span><span>90%</span></div><div class="bar-track"><div class="bar-fill" data-w="90"></div></div></div>
-      <div class="bar"><div class="bar-label"><span>Linux</span><span>75%</span></div><div class="bar-track"><div class="bar-fill" data-w="75"></div></div></div>
     </div>
     <div class="skill-card reveal">
-      <h3>🌐 Réseaux</h3>
-      <div class="tags"><span class="tag">TCP/IP</span><span class="tag">DNS</span><span class="tag">DHCP</span><span class="tag">VPN</span><span class="tag">LAN/Wi-Fi</span><span class="tag">VLAN</span><span class="tag">ACL</span><span class="tag">Port Security</span><span class="tag">SSH</span></div>
-      <div class="bar"><div class="bar-label"><span>Cisco Packet Tracer</span><span>80%</span></div><div class="bar-track"><div class="bar-fill" data-w="80"></div></div></div>
+      <h3>Réseaux</h3>
+      <div class="level">Maîtrisé</div>
+      <div class="tags"><span class="tag">TCP/IP</span><span class="tag">DNS</span><span class="tag">DHCP</span><span class="tag">LAN/Wi-Fi</span><span class="tag">VLAN</span><span class="tag">ACL</span><span class="tag">Port Security</span><span class="tag">SSH</span><span class="tag">Cisco Packet Tracer</span></div>
+      <div class="level">En apprentissage</div>
+      <div class="tags"><span class="tag learning">VPN</span></div>
     </div>
     <div class="skill-card reveal">
-      <h3>🛠️ Support &amp; Helpdesk</h3>
-      <div class="tags"><span class="tag">GLPI</span><span class="tag">ServiceNow</span><span class="tag">Jira Service Management</span><span class="tag">Zendesk</span><span class="tag">TeamViewer</span><span class="tag">AnyDesk</span><span class="tag">Hardware</span><span class="tag">Word</span><span class="tag">Excel</span></div>
-      <div class="bar"><div class="bar-label"><span>Ticketing / Assistance</span><span>90%</span></div><div class="bar-track"><div class="bar-fill" data-w="90"></div></div></div>
-      <div class="bar"><div class="bar-label"><span>ITSM tools (en apprentissage)</span><span>60%</span></div><div class="bar-track"><div class="bar-fill" data-w="60"></div></div></div>
+      <h3>Support &amp; Helpdesk</h3>
+      <div class="level">Maîtrisé</div>
+      <div class="tags"><span class="tag">Assistance utilisateurs</span><span class="tag">TeamViewer</span><span class="tag">AnyDesk</span><span class="tag">Hardware</span><span class="tag">Word</span><span class="tag">Excel</span></div>
+      <div class="level">En apprentissage</div>
+      <div class="tags"><span class="tag learning">GLPI</span><span class="tag learning">ServiceNow</span><span class="tag learning">Jira Service Management</span><span class="tag learning">Zendesk</span></div>
     </div>
     <div class="skill-card reveal">
-      <h3>🔐 Cybersécurité</h3>
-      <div class="tags"><span class="tag">Nmap</span><span class="tag">Gobuster</span><span class="tag">SQLmap</span><span class="tag">PTES</span><span class="tag">CVSS</span></div>
-      <div class="bar"><div class="bar-label"><span>Pentest</span><span>70%</span></div><div class="bar-track"><div class="bar-fill" data-w="70"></div></div></div>
+      <h3>Cybersécurité</h3>
+      <div class="level">Pratiqué en stage</div>
+      <div class="tags"><span class="tag">Nmap</span><span class="tag">WhatWeb</span><span class="tag">Gobuster</span><span class="tag">smbclient</span><span class="tag">SQLmap</span><span class="tag">John the Ripper</span><span class="tag">PTES</span><span class="tag">CVSS</span></div>
     </div>
     <div class="skill-card reveal">
-      <h3>🤝 Soft skills</h3>
+      <h3>Soft skills</h3>
       <div class="tags"><span class="tag">Esprit d'analyse</span><span class="tag">Esprit d'équipe</span><span class="tag">Sens du service</span><span class="tag">Communication</span></div>
     </div>
   </div>
@@ -516,7 +525,7 @@ footer span{color:var(--neon)}
  
 <!-- PROJET : WEB SECURITY ASSESSMENT -->
 <div class="project reveal tilt">
-  <div class="project-img">🛡️</div>
+  <div class="project-img"><img src="assets/pentest-cover.jpg" alt="Test d'intrusion du serveur XAMPP : aperçu du projet" loading="lazy"></div>
 
   <div class="project-body">
     <h3>Test d'intrusion d'un serveur web</h3>
@@ -547,20 +556,17 @@ footer span{color:var(--neon)}
 
     <!-- PROJECT TEMPLATE  -->
     <div class="project reveal tilt">
-      <div class="project-img">🌐</div>
+      <div class="project-img"><img src="assets/cisco-cover.jpg" alt="Simulation réseau Cisco Packet Tracer : schéma du réseau" loading="lazy"></div>
       <div class="project-body">
         <h3>Simulation réseau LAN</h3>
         <p>Conception d'un réseau LAN sous Cisco Packet Tracer : VLAN, ACL, Port Security et SSH.</p>
         <div class="tags"><span class="tag">Packet Tracer</span><span class="tag">VLAN</span><span class="tag">ACL</span><span class="tag">SSH</span></div>
-        <div class="project-links">
-          <a href="https://github.com/TON-USERNAME/TON-REPO" target="_blank">&lt;/&gt; GitHub</a>
-        </div>
       </div>
     </div>
 
     <!-- Carte "Coming soon" -->
     <div class="project reveal tilt placeholder">
-      <div class="project-img">➕</div>
+      <div class="project-img plus">+</div>
       <div class="project-body">
         <h3>Prochain projet...</h3>
         <p>Nouveaux projets bientôt disponibles ;) !</p>
@@ -602,19 +608,16 @@ footer span{color:var(--neon)}
   <h2 class="section-title reveal">Centres d'<span>intérêt</span></h2>
   <div class="interests-grid">
     <div class="interest reveal">
-      <div class="big">♟️</div>
       <h3>Échecs</h3>
       <p>J'adore les échecs : ils m'apprennent la stratégie, la patience et l'anticipation, des qualités utiles pour résoudre des problèmes techniques.</p>
       <div class="tags"><span class="tag">Stratégie</span><span class="tag">Logique</span><span class="tag">Patience</span></div>
     </div>
     <div class="interest reveal">
-      <div class="big">🎮</div>
       <h3>Gaming</h3>
       <p>Le gaming développe mes réflexes, ma concentration et mon esprit d'équipe, et nourrit ma curiosité pour la technologie et le hardware.</p>
       <div class="tags"><span class="tag">Réflexes</span><span class="tag">Esprit d'équipe</span><span class="tag">Hardware</span></div>
     </div>
     <div class="interest reveal">
-      <div class="big">🌍</div>
       <h3>Apprendre de nouvelles langues</h3>
       <p>Curieuse et motivée, j'aime découvrir de nouvelles langues et cultures, ce qui améliore aussi ma communication avec les utilisateurs.</p>
       <div class="tags"><span class="tag">Curiosité</span><span class="tag">Communication</span><span class="tag">Culture</span></div>
@@ -626,23 +629,23 @@ footer span{color:var(--neon)}
 <section id="contact">
   <h2 class="section-title reveal">Me <span>contacter</span></h2>
   <div class="contact-wrap">
-    <a class="contact-card reveal" href="mailto:Lekouisamal@gmail.com"><span class="ic">✉️</span><div><small>Email</small>Lekouisamal@gmail.com</div></a>
-    <a class="contact-card reveal" href="tel:+212630008796"><span class="ic">📞</span><div><small>Téléphone</small>+212 630 008 796</div></a>
-    <a class="contact-card reveal" href="#"><span class="ic">📍</span><div><small>Adresse</small>Bouskoura, Casablanca</div></a>
+    <a class="contact-card reveal" href="mailto:Lekouisamal@gmail.com"><div><small>Email</small>Lekouisamal@gmail.com</div></a>
+    <a class="contact-card reveal" href="tel:+212630008796"><div><small>Téléphone</small>+212 630 008 796</div></a>
+    <a class="contact-card reveal" href="#"><div><small>Adresse</small>Bouskoura, Casablanca</div></a>
     <!-- CONTACT -->
-    <a class="contact-card reveal" href="https://www.linkedin.com/in/amal-lekouis-5942b03ab/" target="_blank"><span class="ic">💼</span><div><small>LinkedIn</small>amal lekouis</div></a>
-    <a class="contact-card reveal" href="https://github.com/lekouisamal" target="_blank" rel="noopener"><span class="ic">🐙</span><div><small>GitHub</small>github.com/Lekouisamal</div></a>
+    <a class="contact-card reveal" href="https://www.linkedin.com/in/amal-lekouis-5942b03ab/" target="_blank"><div><small>LinkedIn</small>amal lekouis</div></a>
+    <a class="contact-card reveal" href="https://github.com/lekouisamal" target="_blank" rel="noopener"><div><small>GitHub</small>github.com/Lekouisamal</div></a>
   </div>
 </section>
 
-<footer>&copy; <span id="year"></span> <span>Amal Lekouis</span> — Built with &lt;/&gt; &amp; ☕</footer>
+<footer>&copy; <span id="year"></span> <span>Amal Lekouis</span></footer>
 
 <script>
 // ---------- THEME TOGGLE ----------
 const themeBtn=document.getElementById('themeBtn');
 function applyTheme(t){
   document.body.classList.toggle('green',t==='green');
-  themeBtn.textContent=t==='green'?'⚡ GREEN':'⚡ BLUE';
+  themeBtn.textContent=t==='green'?'GREEN':'BLUE';
   try{localStorage.setItem('theme',t)}catch(e){}
   initParticles();
 }
@@ -792,13 +795,12 @@ function initParticles(){
         return frame>i*1.6+6?c:chars[Math.floor(Math.random()*chars.length)];
       }).join('');
       el.textContent=out;el.dataset.text=out;
-      el.classList.remove('shake');void el.offsetWidth;el.classList.add('shake');
-      if(out===final){clearInterval(timer);el.textContent=final;el.dataset.text=final}
+            if(out===final){clearInterval(timer);el.textContent=final;el.dataset.text=final}
     },45);
   }
   run();
   el.addEventListener('mouseenter',run);
-  setInterval(run,9000);
+  setInterval(run,25000);
 })();
 
 // ---------- INIT ----------
